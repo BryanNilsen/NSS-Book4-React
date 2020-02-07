@@ -10,7 +10,7 @@ const EmployeeCard = () => {
         <h3>
           Name: <span className="card-petname">John Smith</span>
         </h3>
-        <p>Title: Manager</p>
+        <p>Animals:</p>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ const AnimalCard = () => {
           Name: <span className="card-petname">Doodles</span>
         </h3>
         <p>Breed: Poodle</p>
+        <p>Owner: ??</p>
       </div>
     </div>
   );
