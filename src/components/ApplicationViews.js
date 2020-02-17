@@ -2,9 +2,13 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
+import AnimalDetail from "./animal/AnimalDetail";
 import LocationList from "./location/LocationList";
+import LocationDetail from "./location/LocationDetail";
 import EmployeeList from "./employee/EmployeeList";
+import EmployeeDetail from "./employee/EmployeeDetail";
 import OwnerList from "./owner/OwnerList";
+import OwnerDetail from "./owner/OwnerDetail";
 
 const ApplicationViews = () => {
   return (
@@ -16,21 +20,42 @@ const ApplicationViews = () => {
           return <Home />;
         }}
       />
-      <Route path="/animals" render={(props) => {
+
+      {/* Notice the added `exact` attribute here */}
+      <Route exact path="/animals" render={(props) => {
         return <AnimalList />
       }} />
-      <Route path="/locations" render={(props) => {
+      <Route path="/animals/:animalId(\d+)" render={(props) => {
+        // Pass the animalId to the AnimalDetailComponent
+        return <AnimalDetail animalId={parseInt(props.match.params.animalId)} />
+      }} />
+
+
+      <Route exact path="/locations" render={(props) => {
         return <LocationList />;
       }}
       />
-      <Route path="/employees" render={(props) => {
+      <Route path="/locations/:locationId(\d+)" render={(props) => {
+        return <LocationDetail locationId={parseInt(props.match.params.locationId)} />
+      }} />
+
+
+      <Route exact path="/employees" render={(props) => {
         return <EmployeeList />;
       }}
       />
-      <Route path="/owners" render={(props) => {
+      <Route path="/employees/:employeeId(\d+)" render={(props) => {
+        return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)} />
+      }} />
+
+
+      <Route exact path="/owners" render={(props) => {
         return <OwnerList />;
       }}
       />
+      <Route path="/owners/:ownerId(\d+)" render={(props) => {
+        return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)} />
+      }} />
     </React.Fragment>
   );
 };
