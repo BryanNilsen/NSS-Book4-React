@@ -23,6 +23,11 @@
       "name": "lowercase",
       "breed": "Pitbull",
       "employeeId": 3
+    },
+    {
+      "name": "peaches",
+      "breed": "fox terrier",
+      "id": 5
     }
   ],
   "locations": [

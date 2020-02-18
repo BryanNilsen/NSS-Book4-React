@@ -3,10 +3,12 @@ import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalDetail from "./animal/AnimalDetail";
+import AnimalForm from './animal/AnimalForm'
 import LocationList from "./location/LocationList";
 import LocationDetail from "./location/LocationDetail";
 import EmployeeList from "./employee/EmployeeList";
 import EmployeeDetail from "./employee/EmployeeDetail";
+import EmployeeForm from './employee/EmployeeForm'
 import OwnerList from "./owner/OwnerList";
 import OwnerDetail from "./owner/OwnerDetail";
 
@@ -21,15 +23,16 @@ const ApplicationViews = () => {
         }}
       />
 
-      {/* Notice the added `exact` attribute here */}
       <Route exact path="/animals" render={(props) => {
         return <AnimalList {...props} />
       }} />
       <Route path="/animals/:animalId(\d+)" render={(props) => {
-        // Pass the animalId to the AnimalDetailComponent
         return <AnimalDetail
           animalId={parseInt(props.match.params.animalId)}
           {...props} />
+      }} />
+      <Route path="/animals/new" render={(props) => {
+        return <AnimalForm {...props} />
       }} />
 
 
@@ -52,6 +55,9 @@ const ApplicationViews = () => {
         return <EmployeeDetail
           employeeId={parseInt(props.match.params.employeeId)}
           {...props} />
+      }} />
+      <Route path="/employees/new" render={(props) => {
+        return <EmployeeForm {...props} />
       }} />
 
 

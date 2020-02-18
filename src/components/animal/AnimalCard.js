@@ -13,7 +13,7 @@ const AnimalCard = (props) => {
         <h3>
           Name: <span className="card-petname">{firstLetterCase(props.animal.name)}</span>
         </h3>
-        <p>Breed: {props.animal.name}</p>
+        <p>Breed: {props.animal.breed}</p>
         <Link to={`/animals/${props.animal.id}`}>
           <button>Details</button>
         </Link>

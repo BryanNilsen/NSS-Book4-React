@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import EmployeeCard from './EmployeeCard';
 import EmployeeManager from '../../modules/EmployeeManager';
 
-const EmployeeList = () => {
+const EmployeeList = (props) => {
   const [employees, setEmployees] = useState([]);
 
   const getEmployees = () => {
@@ -10,6 +10,7 @@ const EmployeeList = () => {
       setEmployees(employeesFromAPI)
     });
   };
+
 
   const deleteEmployee = (id) => {
     EmployeeManager.delete(id)
@@ -22,15 +23,24 @@ const EmployeeList = () => {
   }, []);
 
   return (
-    <div className="container-cards">
-      {employees.map(employee =>
-        <EmployeeCard
-          key={employee.id}
-          employee={employee}
-          deleteEmployee={deleteEmployee}
-        />
-      )}
-    </div>
+    <>
+      <section className="section-content">
+        <button type="button"
+          className="btn"
+          onClick={() => { props.history.push("/employees/new") }}>
+          Add Employee
+        </button>
+      </section>
+      <div className="container-cards">
+        {employees.map(employee =>
+          <EmployeeCard
+            key={employee.id}
+            employee={employee}
+            deleteEmployee={deleteEmployee}
+          />
+        )}
+      </div>
+    </>
   );
 };
 export default EmployeeList
