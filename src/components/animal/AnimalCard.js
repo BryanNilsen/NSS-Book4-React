@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Animal.css"
+import { firstLetterCase } from '../../modules/helpers'
 
 const AnimalCard = (props) => {
   return (
@@ -10,7 +11,7 @@ const AnimalCard = (props) => {
           <img src={require("./dog.svg")} alt="My Dog" />
         </picture>
         <h3>
-          Name: <span className="card-petname">{props.animal.name}</span>
+          Name: <span className="card-petname">{firstLetterCase(props.animal.name)}</span>
         </h3>
         <p>Breed: {props.animal.name}</p>
         <Link to={`/animals/${props.animal.id}`}>

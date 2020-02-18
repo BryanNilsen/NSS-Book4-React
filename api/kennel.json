@@ -17,6 +17,12 @@
       "name": "Esme",
       "breed": "Pitbull",
       "employeeId": 3
+    },
+    {
+      "id": 4,
+      "name": "lowercase",
+      "breed": "Pitbull",
+      "employeeId": 3
     }
   ],
   "locations": [
