@@ -23,38 +23,46 @@ const ApplicationViews = () => {
 
       {/* Notice the added `exact` attribute here */}
       <Route exact path="/animals" render={(props) => {
-        return <AnimalList />
+        return <AnimalList {...props} />
       }} />
       <Route path="/animals/:animalId(\d+)" render={(props) => {
         // Pass the animalId to the AnimalDetailComponent
-        return <AnimalDetail animalId={parseInt(props.match.params.animalId)} />
+        return <AnimalDetail
+          animalId={parseInt(props.match.params.animalId)}
+          {...props} />
       }} />
 
 
       <Route exact path="/locations" render={(props) => {
-        return <LocationList />;
+        return <LocationList {...props} />;
       }}
       />
       <Route path="/locations/:locationId(\d+)" render={(props) => {
-        return <LocationDetail locationId={parseInt(props.match.params.locationId)} />
+        return <LocationDetail
+          locationId={parseInt(props.match.params.locationId)}
+          {...props} />
       }} />
 
 
       <Route exact path="/employees" render={(props) => {
-        return <EmployeeList />;
+        return <EmployeeList {...props} />;
       }}
       />
       <Route path="/employees/:employeeId(\d+)" render={(props) => {
-        return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)} />
+        return <EmployeeDetail
+          employeeId={parseInt(props.match.params.employeeId)}
+          {...props} />
       }} />
 
 
       <Route exact path="/owners" render={(props) => {
-        return <OwnerList />;
+        return <OwnerList {...props} />;
       }}
       />
       <Route path="/owners/:ownerId(\d+)" render={(props) => {
-        return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)} />
+        return <OwnerDetail
+          ownerId={parseInt(props.match.params.ownerId)}
+          {...props} />
       }} />
     </React.Fragment>
   );
