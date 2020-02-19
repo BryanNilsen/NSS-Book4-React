@@ -3,6 +3,15 @@ import EmployeeManager from '../../modules/EmployeeManager';
 
 const EmployeeDetail = props => {
   const [employee, setEmployee] = useState({ name: "" });
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleDelete = () => {
+    //invoke the delete function in AnimalManger and re-direct to the animal list.
+    setIsLoading(true);
+    EmployeeManager.delete(props.employeeId).then(() =>
+      props.history.push("/employees")
+    );
+  };
 
   useEffect(() => {
     //get(id) from EmployeeManager and hang on to the data; put it into state
@@ -11,6 +20,7 @@ const EmployeeDetail = props => {
         setEmployee({
           name: employee.name,
         });
+        setIsLoading(false);
       });
   }, [props.employeeId]);
 
@@ -21,6 +31,9 @@ const EmployeeDetail = props => {
           <img src={require("./employee-male.svg")} alt="Employee" />
         </picture>
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{employee.name}</span></h3>
+        <button type="button" disabled={isLoading} onClick={handleDelete}>
+          Fire Employee
+        </button>
       </div>
     </div>
   );
