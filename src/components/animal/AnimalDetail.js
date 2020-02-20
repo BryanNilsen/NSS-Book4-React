@@ -19,13 +19,17 @@ const AnimalDetail = props => {
     //get(id) from AnimalManager and hang on to the data; put it into state
     AnimalManager.get(props.animalId)
       .then(animal => {
-        setAnimal({
-          name: animal.name,
-          breed: animal.breed
-        });
-        setIsLoading(false);
+        if (!animal.name) {
+          props.history.push("/notFound")
+        } else {
+          setAnimal({
+            name: animal.name,
+            breed: animal.breed
+          });
+          setIsLoading(false);
+        }
       });
-  }, [props.animalId]);
+  }, [props.animalId, props.history]);
 
   return (
     <div className="card">

@@ -1,8 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { NavLink, withRouter } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = () => {
+
+  const handleLogout = () => {
+    sessionStorage.clear()
+    localStorage.clear()
+  }
+
   return (
     <header>
       <h1 className="site-title">
@@ -13,29 +19,34 @@ const NavBar = () => {
       <nav>
         <ul className="container">
           <li>
-            <Link className="nav-link" to="/">
+            <NavLink className="nav-link" exact activeClassName="selectedLink" to="/">
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="nav-link" to="/animals">
+            <NavLink className="nav-link" activeClassName="selectedLink" to="/animals">
               Animals
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="nav-link" to="/locations">
+            <NavLink className="nav-link" activeClassName="selectedLink" to="/locations">
               Locations
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="nav-link" to="/employees">
+            <NavLink className="nav-link" activeClassName="selectedLink" to="/employees">
               Employees
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="nav-link" to="/owners">
+            <NavLink className="nav-link" activeClassName="selectedLink" to="/owners">
               Owners
-            </Link>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="nav-link" onClick={handleLogout} to="/login">
+              Log Out
+            </NavLink>
           </li>
         </ul>
       </nav>
@@ -43,4 +54,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
