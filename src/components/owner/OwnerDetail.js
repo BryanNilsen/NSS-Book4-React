@@ -17,12 +17,16 @@ const OwnerDetail = props => {
     //get(id) from OwnerManager and hang on to the data; put it into state
     OwnerManager.get(props.ownerId)
       .then(owner => {
-        setOwner({
-          name: owner.name,
-        });
-        setIsLoading(false);
+        if (!owner.name) {
+          props.history.push("/notFound")
+        } else {
+          setOwner({
+            name: owner.name,
+          });
+          setIsLoading(false);
+        }
       });
-  }, [props.ownerId]);
+  }, [props.ownerId, props.history]);
 
   return (
     <div className="card">
