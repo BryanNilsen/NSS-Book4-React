@@ -2,9 +2,8 @@
   "animals": [
     {
       "id": 1,
-      "name": "Doodles",
-      "breed": "Poodle",
-      "employeeId": 1
+      "name": "Doodled",
+      "breed": "Poodle"
     },
     {
       "id": 2,
@@ -44,7 +43,7 @@
   "employees": [
     {
       "id": 1,
-      "name": "Jessica Younker"
+      "name": "Jessica Younkers"
     },
     {
       "id": 2,

@@ -35,6 +35,10 @@ const OwnerDetail = props => {
           <img src={require("./owner-male.svg")} alt="Owner" />
         </picture>
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{owner.name}</span></h3>
+        <button type="button"
+          onClick={() => props.history.push(`/locations/${props.locationId}/edit`)}>
+          Edit
+        </button>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Remove Owner
         </button>

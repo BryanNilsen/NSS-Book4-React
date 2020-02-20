@@ -14,11 +14,13 @@ import AnimalEditForm from './animal/AnimalEditForm';
 import LocationList from "./location/LocationList";
 import LocationDetail from "./location/LocationDetail";
 import LocationForm from './location/LocationForm';
+import LocationEditForm from './location/LocationEditForm';
 
 // employee imports
 import EmployeeList from "./employee/EmployeeList";
 import EmployeeDetail from "./employee/EmployeeDetail";
 import EmployeeForm from './employee/EmployeeForm';
+import EmployeeEditForm from './employee/EmployeeEditForm';
 
 // owner imports
 import OwnerList from "./owner/OwnerList";
@@ -104,6 +106,14 @@ const ApplicationViews = () => {
         }
       }
       } />
+      <Route path="/locations/:locationId(\d+)/edit" render={props => {
+        if (isAuthenticated()) {
+          return <LocationEditForm {...props} />
+        } else {
+          return <Redirect to="/login" />
+        }
+      }}
+      />
 
 
       <Route exact path="/employees" render={(props) => {
@@ -133,6 +143,14 @@ const ApplicationViews = () => {
         }
       }
       } />
+      <Route path="/employees/:employeeId(\d+)/edit" render={props => {
+        if (isAuthenticated()) {
+          return <EmployeeEditForm {...props} />
+        } else {
+          return <Redirect to="/login" />
+        }
+      }}
+      />
 
 
       <Route exact path="/owners" render={(props) => {

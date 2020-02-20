@@ -35,6 +35,10 @@ const EmployeeDetail = props => {
           <img src={require("./employee-male.svg")} alt="Employee" />
         </picture>
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{employee.name}</span></h3>
+        <button type="button"
+          onClick={() => props.history.push(`/employees/${props.employeeId}/edit`)}>
+          Edit
+        </button>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Fire Employee
         </button>
