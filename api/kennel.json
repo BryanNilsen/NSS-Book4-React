@@ -8,9 +8,8 @@
     },
     {
       "id": 2,
-      "name": "Decker",
-      "breed": "German Sheperd",
-      "employeeId": 2
+      "name": "Deckered",
+      "breed": "German Sheperd"
     },
     {
       "id": 3,

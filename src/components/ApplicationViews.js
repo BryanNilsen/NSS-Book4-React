@@ -8,6 +8,7 @@ import NotFound from "./NotFound/NotFound";
 import AnimalList from "./animal/AnimalList";
 import AnimalDetail from "./animal/AnimalDetail";
 import AnimalForm from './animal/AnimalForm';
+import AnimalEditForm from './animal/AnimalEditForm';
 
 // location imports
 import LocationList from "./location/LocationList";
@@ -67,6 +68,14 @@ const ApplicationViews = () => {
           return <Redirect to="/login" />
         }
       }} />
+      <Route path="/animals/:animalId(\d+)/edit" render={props => {
+        if (isAuthenticated()) {
+          return <AnimalEditForm {...props} />
+        } else {
+          return <Redirect to="/login" />
+        }
+      }}
+      />
 
 
       <Route exact path="/locations" render={(props) => {
