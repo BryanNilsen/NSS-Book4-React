@@ -17,12 +17,16 @@ const EmployeeDetail = props => {
     //get(id) from EmployeeManager and hang on to the data; put it into state
     EmployeeManager.get(props.employeeId)
       .then(employee => {
-        setEmployee({
-          name: employee.name,
-        });
-        setIsLoading(false);
+        if (!employee.name) {
+          props.history.push("/notFound")
+        } else {
+          setEmployee({
+            name: employee.name,
+          });
+          setIsLoading(false);
+        }
       });
-  }, [props.employeeId]);
+  }, [props.employeeId, props.history]);
 
   return (
     <div className="card">

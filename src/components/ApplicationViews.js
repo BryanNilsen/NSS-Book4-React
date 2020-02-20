@@ -2,6 +2,7 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import Login from "./auth/Login";
+import NotFound from "./NotFound/NotFound";
 
 // animal imports
 import AnimalList from "./animal/AnimalList";
@@ -31,9 +32,14 @@ const ApplicationViews = () => {
   return (
     <React.Fragment>
       <Route path="/login" component={Login} />
+      <Route path="/notFound" component={NotFound} />
 
       <Route exact path="/" render={props => {
-        return <Home />;
+        if (isAuthenticated()) {
+          return <Home />;
+        } else {
+          return <Redirect to="/login" />
+        }
       }}
       />
 

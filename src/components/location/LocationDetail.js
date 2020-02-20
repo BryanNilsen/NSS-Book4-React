@@ -17,13 +17,17 @@ const LocationDetail = props => {
     //get(id) from LocationManager and hang on to the data; put it into state
     LocationManager.get(props.locationId)
       .then(location => {
-        setLocation({
-          name: location.name,
-          address: location.address
-        });
-        setIsLoading(false);
+        if (!location.name) {
+          props.history.push("/notFound")
+        } else {
+          setLocation({
+            name: location.name,
+            address: location.address
+          });
+          setIsLoading(false);
+        }
       });
-  }, [props.locationId]);
+  }, [props.locationId, props.history]);
 
   return (
     <div className="card">
