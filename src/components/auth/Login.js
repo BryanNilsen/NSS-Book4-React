@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 const Login = props => {
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [credentials, setCredentials] = useState({ email: "", password: "", remember: false });
 
   // Update state whenever an input field is edited
   const handleFieldChange = (evt) => {
@@ -10,16 +10,28 @@ const Login = props => {
     setCredentials(stateToChange);
   };
 
+  const handleCheckbox = (evt) => {
+    const stateToChange = { ...credentials };
+    stateToChange[evt.target.id] = evt.target.checked;
+    setCredentials(stateToChange)
+  }
+
   const handleLogin = (e) => {
-    /*
-        For now, just store the email and password that
-        the customer enters into session storage.
-        ...Let's just trust the user... That's a good idea, right????
-    */
-    sessionStorage.setItem(
-      "credentials",
-      JSON.stringify(credentials)
-    );
+    // check if user selected 'Remember Me' for local storage
+    // clear any prior data saved to session or local storage
+    if (credentials.remember) {
+      sessionStorage.clear()
+      localStorage.setItem(
+        "credentials",
+        JSON.stringify(credentials)
+      );
+    } else {
+      localStorage.clear()
+      sessionStorage.setItem(
+        "credentials",
+        JSON.stringify(credentials)
+      );
+    }
     props.history.push("/");
   }
 
@@ -38,6 +50,9 @@ const Login = props => {
           placeholder="Password"
           required="" />
         <label htmlFor="inputPassword">Password</label>
+        <input onChange={handleCheckbox} type="checkbox"
+          id="remember" defaultChecked={credentials.remember} />
+        <label htmlFor="remember">Remember Me</label>
       </div>
       <button type="submit" onClick={handleLogin}>Sign in</button>
     </fieldset>

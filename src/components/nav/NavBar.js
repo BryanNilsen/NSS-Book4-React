@@ -4,6 +4,11 @@ import "./NavBar.css";
 
 const NavBar = () => {
 
+  const handleLogout = () => {
+    sessionStorage.clear()
+    localStorage.clear()
+  }
+
   return (
     <header>
       <h1 className="site-title">
@@ -36,6 +41,11 @@ const NavBar = () => {
           <li>
             <NavLink className="nav-link" activeClassName="selectedLink" to="/owners">
               Owners
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="nav-link" onClick={handleLogout} to="/login">
+              Log Out
             </NavLink>
           </li>
         </ul>
