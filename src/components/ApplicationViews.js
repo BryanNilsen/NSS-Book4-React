@@ -26,6 +26,7 @@ import EmployeeEditForm from './employee/EmployeeEditForm';
 import OwnerList from "./owner/OwnerList";
 import OwnerDetail from "./owner/OwnerDetail";
 import OwnerForm from './owner/OwnerForm';
+import OwnerEditForm from './owner/OwnerEditForm';
 
 
 const ApplicationViews = () => {
@@ -180,6 +181,14 @@ const ApplicationViews = () => {
         }
       }
       } />
+      <Route path="/owners/:ownerId(\d+)/edit" render={props => {
+        if (isAuthenticated()) {
+          return <OwnerEditForm {...props} />
+        } else {
+          return <Redirect to="/login" />
+        }
+      }}
+      />
 
     </React.Fragment>
   );
