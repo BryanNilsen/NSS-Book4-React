@@ -24,27 +24,27 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className="nav-link" activeClassName="selectedLink" to="/animals">
+            <NavLink className="nav-link" exact activeClassName="selectedLink" to="/animals">
               Animals
             </NavLink>
           </li>
           <li>
-            <NavLink className="nav-link" activeClassName="selectedLink" to="/locations">
+            <NavLink className="nav-link" exact activeClassName="selectedLink" to="/locations">
               Locations
             </NavLink>
           </li>
           <li>
-            <NavLink className="nav-link" activeClassName="selectedLink" to="/employees">
+            <NavLink className="nav-link" exact activeClassName="selectedLink" to="/employees">
               Employees
             </NavLink>
           </li>
           <li>
-            <NavLink className="nav-link" activeClassName="selectedLink" to="/owners">
+            <NavLink className="nav-link" exact activeClassName="selectedLink" to="/owners">
               Owners
             </NavLink>
           </li>
           <li>
-            <NavLink className="nav-link" onClick={handleLogout} to="/login">
+            <NavLink className="nav-link" exact onClick={handleLogout} to="/login">
               Log Out
             </NavLink>
           </li>

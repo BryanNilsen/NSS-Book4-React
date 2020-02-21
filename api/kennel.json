@@ -2,27 +2,13 @@
   "animals": [
     {
       "id": 1,
-      "name": "Doodles",
-      "breed": "Poodle",
-      "employeeId": 1
+      "name": "Doodled",
+      "breed": "Poodle"
     },
     {
       "id": 2,
-      "name": "Decker",
-      "breed": "German Sheperd",
-      "employeeId": 2
-    },
-    {
-      "id": 3,
-      "name": "Esme",
-      "breed": "Pitbull",
-      "employeeId": 3
-    },
-    {
-      "id": 4,
-      "name": "lowercase",
-      "breed": "Pitbull",
-      "employeeId": 3
+      "name": "Deckered",
+      "breed": "German Sheperd"
     },
     {
       "name": "peaches",
@@ -34,7 +20,7 @@
     {
       "id": 1,
       "name": "Nashville North",
-      "address": "500 Interstate Blvd"
+      "address": "500 Interstate Blvds"
     },
     {
       "id": 2,
@@ -45,15 +31,11 @@
   "employees": [
     {
       "id": 1,
-      "name": "Jessica Younker"
+      "name": "Jessica Younkers"
     },
     {
       "id": 2,
       "name": "Jordan Nelson"
-    },
-    {
-      "id": 3,
-      "name": "Zoe LeBlanc"
     },
     {
       "id": 4,
@@ -64,7 +46,7 @@
     {
       "id": 1,
       "name": "Tyle Durden",
-      "phoneNumber": "615-5678"
+      "phoneNumber": "615-5679"
     },
     {
       "id": 2,
@@ -73,13 +55,13 @@
     },
     {
       "id": 3,
-      "name": "Han Solo",
-      "phoneNumber": "615-9876"
+      "name": "Han Solos",
+      "phoneNumber": "615-1234"
     },
     {
       "id": 4,
-      "name": "Mary Poppins",
-      "phoneNumber": "615-5432"
+      "name": "Mary Poppin",
+      "phoneNumber": "615-1222"
     }
   ]
 }

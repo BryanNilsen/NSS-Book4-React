@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import OwnerManager from '../../modules/OwnerManager';
 
 const OwnerDetail = props => {
-  const [owner, setOwner] = useState({ name: "" });
+  const [owner, setOwner] = useState({ name: "", phoneNumber: "" });
   const [isLoading, setIsLoading] = useState(true);
 
   const handleDelete = () => {
@@ -22,6 +22,7 @@ const OwnerDetail = props => {
         } else {
           setOwner({
             name: owner.name,
+            phoneNumber: owner.phoneNumber,
           });
           setIsLoading(false);
         }
@@ -35,6 +36,11 @@ const OwnerDetail = props => {
           <img src={require("./owner-male.svg")} alt="Owner" />
         </picture>
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{owner.name}</span></h3>
+        <h3>Phone Number: <span style={{ color: 'darkslategrey' }}>{owner.phoneNumber}</span></h3>
+        <button type="button"
+          onClick={() => props.history.push(`/owners/${props.ownerId}/edit`)}>
+          Edit
+        </button>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Remove Owner
         </button>

@@ -49,5 +49,5 @@ nav .container li {
 
 .selectedLink {
   color: lime;
-  pointer-events: none;
+  /* pointer-events: none; */
 }

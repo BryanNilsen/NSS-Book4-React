@@ -10,13 +10,17 @@ const LocationCard = (props) => {
           <img src={require("./location-1.svg")} alt="Location" />
         </picture>
         <h3>
-          Location: <span className="card-petname">{props.location.name}</span>
+          Location: <span className="card-petname">{props.locationObject.name}</span>
         </h3>
-        <p>Address: {props.location.address}</p>
-        <Link to={`/locations/${props.location.id}`}>
+        <p>Address: {props.locationObject.address}</p>
+        <Link to={`/locations/${props.locationObject.id}`}>
           <button>Details</button>
         </Link>
-        <button type="button" onClick={() => props.deleteLocation(props.location.id)}>Close Location</button>
+        <button type="button"
+          onClick={() => props.history.push(`/locations/${props.locationObject.id}/edit`)}>
+          Edit
+        </button>
+        <button type="button" onClick={() => props.deleteLocation(props.locationObject.id)}>Close Location</button>
       </div>
     </div>
   );
