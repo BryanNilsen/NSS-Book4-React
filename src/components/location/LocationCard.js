@@ -17,6 +17,8 @@ const LocationCard = (props) => {
           <button>Details</button>
         </Link>
         <button type="button"
+          onClick={() => { props.history.push(`/locations/${props.locationObject.id}/details`) }}>Details With Employees</button>
+        <button type="button"
           onClick={() => props.history.push(`/locations/${props.locationObject.id}/edit`)}>
           Edit
         </button>

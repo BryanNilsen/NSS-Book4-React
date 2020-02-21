@@ -3,17 +3,32 @@
     {
       "id": 1,
       "name": "Doodled",
-      "breed": "Poodle"
+      "breed": "Poodle",
+      "employeeId": 1
     },
     {
       "id": 2,
       "name": "Deckered",
-      "breed": "German Sheperd"
+      "breed": "German Sheperd",
+      "employeeId": 4
     },
     {
       "name": "peaches",
       "breed": "fox terrier",
-      "id": 5
+      "id": 5,
+      "employeeId": 2
+    },
+    {
+      "name": "berries",
+      "breed": "fox terrier",
+      "id": 6,
+      "employeeId": 2
+    },
+    {
+      "name": "Blaise's Dog",
+      "breed": "dachshund",
+      "employeeId": 4,
+      "id": 7
     }
   ],
   "locations": [
@@ -31,15 +46,18 @@
   "employees": [
     {
       "id": 1,
-      "name": "Jessica Younkers"
+      "name": "Jessica Younkers",
+      "locationId": 1
     },
     {
       "id": 2,
-      "name": "Jordan Nelson"
+      "name": "Jordan Nelson",
+      "locationId": 1
     },
     {
       "id": 4,
-      "name": "Blaise Roberts"
+      "name": "Blaise Roberts",
+      "locationId": 2
     }
   ],
   "owners": [

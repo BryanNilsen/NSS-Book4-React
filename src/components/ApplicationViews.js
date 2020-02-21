@@ -15,12 +15,14 @@ import LocationList from "./location/LocationList";
 import LocationDetail from "./location/LocationDetail";
 import LocationForm from './location/LocationForm';
 import LocationEditForm from './location/LocationEditForm';
+import LocationWithEmployees from "./location/LocationWithEmployees";
 
 // employee imports
 import EmployeeList from "./employee/EmployeeList";
 import EmployeeDetail from "./employee/EmployeeDetail";
 import EmployeeForm from './employee/EmployeeForm';
 import EmployeeEditForm from './employee/EmployeeEditForm';
+import EmployeeWithAnimals from "./employee/EmployeeWithAnimals";
 
 // owner imports
 import OwnerList from "./owner/OwnerList";
@@ -115,6 +117,9 @@ const ApplicationViews = () => {
         }
       }}
       />
+      <Route path="/locations/:locationId(\d+)/details" render={(props) => {
+        return <LocationWithEmployees {...props} />
+      }} />
 
 
       <Route exact path="/employees" render={(props) => {
@@ -152,6 +157,9 @@ const ApplicationViews = () => {
         }
       }}
       />
+      <Route path="/employees/:employeeId(\d+)/details" render={(props) => {
+        return <EmployeeWithAnimals {...props} />
+      }} />
 
 
       <Route exact path="/owners" render={(props) => {
