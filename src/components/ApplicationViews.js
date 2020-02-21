@@ -15,6 +15,7 @@ import LocationList from "./location/LocationList";
 import LocationDetail from "./location/LocationDetail";
 import LocationForm from './location/LocationForm';
 import LocationEditForm from './location/LocationEditForm';
+import LocationWithEmployees from "./location/LocationWithEmployees";
 
 // employee imports
 import EmployeeList from "./employee/EmployeeList";
@@ -116,6 +117,9 @@ const ApplicationViews = () => {
         }
       }}
       />
+      <Route path="/locations/:locationId(\d+)/details" render={(props) => {
+        return <LocationWithEmployees {...props} />
+      }} />
 
 
       <Route exact path="/employees" render={(props) => {
