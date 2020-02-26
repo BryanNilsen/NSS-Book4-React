@@ -16,6 +16,7 @@ const AnimalEditForm = props => {
 
   const updateExistingAnimal = evt => {
     evt.preventDefault()
+    console.log(evt)
     setIsLoading(true);
 
     // This is an edit, so we need the id

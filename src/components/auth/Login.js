@@ -19,19 +19,8 @@ const Login = props => {
   const handleLogin = (e) => {
     // check if user selected 'Remember Me' for local storage
     // clear any prior data saved to session or local storage
-    if (credentials.remember) {
-      sessionStorage.clear()
-      localStorage.setItem(
-        "credentials",
-        JSON.stringify(credentials)
-      );
-    } else {
-      localStorage.clear()
-      sessionStorage.setItem(
-        "credentials",
-        JSON.stringify(credentials)
-      );
-    }
+
+    props.setUser(credentials)
     props.history.push("/");
   }
 
