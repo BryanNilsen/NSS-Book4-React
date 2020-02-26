@@ -1,14 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = props => {
 
   const handleLogout = (e) => {
     // clear any prior data saved to session or local storage
-    sessionStorage.clear()
-    localStorage.clear()
-    props.setUser()
+    props.clearUser()
+    props.history.push('/');
+
   }
 
   return (
@@ -41,20 +41,17 @@ const NavBar = props => {
               <Link className="nav-link" to="/owners"> Owners </Link>
             </li>
             : null}
-          {!props.hasUser
-            ? <li>
-              <Link className="nav-link" to="/login"> Login </Link>
-            </li>
-            : null}
           {props.hasUser
             ? <li>
-              <Link onClick={() => handleLogout()} className="nav-link" to="/login"> Logout </Link>
+              <span className="nav-link" onClick={handleLogout}> Logout </span>
             </li>
-            : null}
+            : <li>
+              <Link className="nav-link" to="/login">Login</Link>
+            </li>}
         </ul>
       </nav>
     </header>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

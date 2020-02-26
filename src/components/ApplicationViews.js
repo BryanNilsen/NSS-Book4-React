@@ -42,14 +42,11 @@ const ApplicationViews = (props) => {
         return <Login setUser={setUser} {...props} />
       }} />
 
-      <Route path="/notFound" component={NotFound} />
+      <Route path="/notFound" render={props => <NotFound {...props} />
+      } />
 
       <Route exact path="/" render={props => {
-        if (hasUser) {
-          return <Home />;
-        } else {
-          return <Redirect to="/login" />
-        }
+        return <Home />;
       }}
       />
 
@@ -88,11 +85,7 @@ const ApplicationViews = (props) => {
 
 
       <Route exact path="/locations" render={(props) => {
-        if (hasUser) {
-          return <LocationList {...props} />;
-        } else {
-          return <Redirect to="/login" />
-        }
+        return <LocationList {...props} />;
       }}
       />
       <Route path="/locations/:locationId(\d+)" render={(props) => {

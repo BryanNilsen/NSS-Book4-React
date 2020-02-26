@@ -8,10 +8,14 @@ const Kennel = () => {
 
   const [hasUser, setHasUser] = useState(isAuthenticated());
 
+  const clearUser = () => {
+    sessionStorage.clear();
+    localStorage.clear();
+    setHasUser(isAuthenticated());
+  }
+
   const setUser = user => {
-    if (!user) {
-      setHasUser(isAuthenticated())
-    } else if (user.remember) {
+    if (user.remember) {
       sessionStorage.clear()
       localStorage.setItem("credentials", JSON.stringify(user));
       setHasUser(isAuthenticated());
@@ -24,7 +28,7 @@ const Kennel = () => {
 
   return (
     <>
-      <NavBar hasUser={hasUser} setUser={setUser} />
+      <NavBar hasUser={hasUser} clearUser={clearUser} />
       <ApplicationViews hasUser={hasUser} setUser={setUser} />
     </>
   );
