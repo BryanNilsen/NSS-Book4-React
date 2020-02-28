@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //import the components we will need
 import AnimalCard from './AnimalCard';
-import AnimalManager from '../../modules/AnimalManager';
+import DataManager from '../../modules/DataManager';
 
 const AnimalList = (props) => {
   // The initial state is an empty array
@@ -10,14 +10,14 @@ const AnimalList = (props) => {
   const getAnimals = () => {
     // After the data comes back from the API, we
     //  use the setAnimals function to update state
-    return AnimalManager.getAll().then(animalsFromAPI => {
+    return DataManager.getAll("animals").then(animalsFromAPI => {
       setAnimals(animalsFromAPI)
     });
   };
 
   const deleteAnimal = (id) => {
-    AnimalManager.delete(id)
-      .then(() => AnimalManager.getAll().then(setAnimals));
+    DataManager.delete("animals", id)
+      .then(() => DataManager.getAll("animals").then(setAnimals));
   };
 
   // get the animals from the API on the component's first render
