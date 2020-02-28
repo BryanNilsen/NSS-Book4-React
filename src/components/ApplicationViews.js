@@ -50,13 +50,18 @@ const ApplicationViews = (props) => {
       }}
       />
 
-      <Route exact path="/animals" render={props => {
-        if (hasUser) {
-          return <AnimalList {...props} />
-        } else {
-          return <Redirect to="/login" />
-        }
-      }} />
+      <Route exact path="/animals" render={props =>
+        // ternary example
+        hasUser
+          ? <AnimalList {...props} />
+          : <Redirect to="/login" />
+        // if (hasUser) {
+        //   return <AnimalList {...props} />
+        // } else {
+        //   return <Redirect to="/login" />
+        // }
+      } />
+
 
       <Route path="/animals/:animalId(\d+)" render={(props) => {
         if (hasUser) {
