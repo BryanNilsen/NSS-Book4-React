@@ -29,6 +29,24 @@
       "breed": "dachshund",
       "employeeId": 4,
       "id": 7
+    },
+    {
+      "name": "busted",
+      "breed": "hound",
+      "employeeId": 2,
+      "id": 8
+    },
+    {
+      "name": "Andy",
+      "breed": "Mandy",
+      "employeeId": 4,
+      "id": 9
+    },
+    {
+      "name": "First Place",
+      "breed": "German Sheperd",
+      "employeeId": 4,
+      "id": 10
     }
   ],
   "locations": [
